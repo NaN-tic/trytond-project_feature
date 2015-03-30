@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
+<form string="Project delivery">
+    <label name="delivery_date"/>
+    <field name="delivery_date"/>
+    <label name="party"/>
+    <field name="party"/>
+    <newline/>
+    <field name="features" colspan="4"/>
+    <field name="tasks" colspan="4"/>
+    <label name="state"/>
+    <field name="state"/>
+</form>

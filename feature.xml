@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
+<tryton>
+    <data>
+
+        <record model="res.group" id="group_project_feature_admin">
+            <field name="name">Project_feature Administration</field>
+        </record>
+        <record model="res.user-res.group" id="user_admin_group_project_feature_admin">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_project_feature_admin"/>
+        </record>
+        <record model="res.user-res.group" id="user_trigger_group_project_feature_admin">
+            <field name="user" ref="res.user_trigger"/>
+            <field name="group" ref="group_project_feature_admin"/>
+        </record>
+        <record model="res.group" id="group_project_feature">
+            <field name="name">Features</field>
+        </record>
+        <record model="res.user-res.group" id="user_admin_group_project_feature">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_project_feature"/>
+        </record>
+        <record model="res.user-res.group" id="user_trigger_group_project_feature">
+            <field name="user" ref="res.user_trigger"/>
+            <field name="group" ref="group_project_feature"/>
+        </record>
+        <record model="ir.ui.view" id="project_feature_view_form">
+            <field name="model">project.feature</field>
+            <field name="type">form</field>
+            <field name="name">project_feature_form</field>
+        </record>
+        <record model="ir.ui.view" id="project_feature_view_list">
+            <field name="model">project.feature</field>
+            <field name="type">tree</field>
+            <field name="name">project_feature_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_project_feature">
+            <field name="name">Features</field>
+            <field name="res_model">project.feature</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_feature_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="project_feature_view_list"/>
+            <field name="act_window" ref="act_project_feature"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_feature_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="project_feature_view_form"/>
+            <field name="act_window" ref="act_project_feature"/>
+        </record>
+        <record model="ir.model.access" id="access_project_feature">
+            <field name="model" search="[('model', '=', 'project.feature')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_project_feature_admin">
+            <field name="model" search="[('model', '=', 'project.feature')]"/>
+            <field name="group" ref="group_project_feature_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+      <record model="ir.ui.view" id="project_cicle">
+            <field name="model">project.feature.cicle</field>
+            <field name="type">form</field>
+            <field name="name">project_cicle_form</field>
+        </record>
+        <record model="ir.ui.view" id="project_cicle_list_view">
+            <field name="model">project.feature.cicle</field>
+            <field name="type">tree</field>
+            <field name="name">project_cicle_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_project_cicle">
+            <field name="name">Cicles</field>
+            <field name="res_model">project.feature.cicle</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_cicle_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="project_cicle_list_view"/>
+            <field name="act_window" ref="act_project_cicle"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_cicle_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="project_cicle"/>
+            <field name="act_window" ref="act_project_cicle"/>
+        </record>
+        <record model="ir.model.access" id="acces_project_cicle">
+            <field name="model" search="[('model', '=', 'project.feature.cicle')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="acces_project_cicle_admin">
+            <field name="model" search="[('model', '=', 'project.feature.cicle')]"/>
+            <field name="group" ref="group_project_feature_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+
+      <record model="ir.ui.view" id="project_delivery">
+            <field name="model">project.feature.delivery</field>
+            <field name="type">form</field>
+            <field name="name">project_delivery_form</field>
+        </record>
+        <record model="ir.ui.view" id="project_delivery_list_view">
+            <field name="model">project.feature.delivery</field>
+            <field name="type">tree</field>
+            <field name="name">project_delivery_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_project_delivery">
+            <field name="name">Features</field>
+            <field name="res_model">project.feature.delivery</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_delivery_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="project_delivery_list_view"/>
+            <field name="act_window" ref="act_project_delivery"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_delivery_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="project_delivery"/>
+            <field name="act_window" ref="act_project_delivery"/>
+        </record>
+        <record model="ir.model.access" id="acces_project_delivery">
+            <field name="model" search="[('model', '=', 'project.feature.delivery')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="acces_project_delivery_admin">
+            <field name="model" search="[('model', '=', 'project.feature.delivery')]"/>
+            <field name="group" ref="group_project_feature_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+
+
+
+        <record model="ir.ui.view" id="project_feature_scenario_view_form">
+            <field name="model">project.feature.scenario</field>
+            <field name="type">form</field>
+            <field name="name">project_feature_scenario_form</field>
+        </record>
+        <record model="ir.ui.view" id="project_feature_scenario_view_list">
+            <field name="model">project.feature.scenario</field>
+            <field name="type">tree</field>
+            <field name="name">project_feature_scenario_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_project_feature_scenario">
+            <field name="name">Project Feature Scenario</field>
+            <field name="res_model">project.feature.scenario</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_feature_scenario_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="project_feature_scenario_view_list"/>
+            <field name="act_window" ref="act_project_feature_scenario"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_feature_scenario_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="project_feature_scenario_view_form"/>
+            <field name="act_window" ref="act_project_feature_scenario"/>
+        </record>
+        <record model="ir.model.access" id="access_project_feature_scenario">
+            <field name="model" search="[('model', '=', 'project.feature.scenario')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_project_feature_scenario_admin">
+            <field name="model" search="[('model', '=', 'project.feature.scenario')]"/>
+            <field name="group" ref="group_project_feature_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <!-- Menus -->
+        <menuitem id="menu_project_feature_root"
+            parent='project.menu_project' name="Features" sequence="1" />
+
+          <record model="ir.ui.menu-res.group" id="menu_project_feature_group_project_feature">
+            <field name="menu" ref="menu_project_feature_root"/>
+            <field name="group" ref="group_project_feature"/>
+          </record>
+
+          <record model="ir.ui.menu-res.group" id="menu_project_feature_group_project_feature_admin">
+            <field name="menu" ref="menu_project_feature_root"/>
+            <field name="group" ref="group_project_feature"/>
+          </record>
+
+        <record model="ir.ui.view" id="project_work_view_form">
+            <field name="model">project.work</field>
+            <field name="type">form</field>
+            <field name="inherit" ref="project.work_view_form"/>
+            <field name="name">work_form</field>
+        </record>
+
+
+        <record model="ir.ui.view" id="project_work_view_list">
+            <field name="model">project.work</field>
+            <field name="type">form</field>
+            <field name="inherit" ref="project.work_view_list2"/>
+            <field name="name">work_list</field>
+        </record>
+
+
+
+        <menuitem action="act_project_feature"
+            id="menu_project_feature"
+            parent="menu_project_feature_root"
+            sequence="1" name="Feature"/>
+        <menuitem action="act_project_feature_scenario"
+            id="menu_project_feature_scenario"
+            parent="menu_project_feature_root" sequence="2"
+            name="Scenarios"/>
+        <menuitem action="act_project_cicle" id="menu_project_cicle"
+            parent="menu_project_feature_root" sequence="3"
+            name="Cicle"/>
+
+        <menuitem action="act_project_delivery" id="menu_project_delivery"
+            parent="menu_project_feature_root" sequence="4"
+            name="Deliveries"/>
+
+
+    </data>
+</tryton>

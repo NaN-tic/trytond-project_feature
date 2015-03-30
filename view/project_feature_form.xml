@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
+<form string="Project Feature">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="state"/>
+    <field name="state"/>
+
+    <label name="party"/>
+    <field name="party"/>
+    <newline/>
+
+    <separator name="background" colspan="2"/>
+    <separator name="description" colspan="2"/>
+    <field name="background" colspan="2"/>
+    <field name="description" colspan="2"/>
+
+    <notebook colspan="4">
+        <page name="scenarios">
+            <field name="scenarios"/>
+        </page>
+        <page name="tasks">
+              <field name="tasks"/>
+        </page>
+        <page name="origin">
+              <field name="origin"/>
+        </page>
+    </notebook>
+</form>
