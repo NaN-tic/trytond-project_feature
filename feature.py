@@ -21,7 +21,7 @@ __metaclass__ = PoolMeta
 class Work:
     __name__ = 'project.work'
 
-    feature = fields.Many2One('project.feature', 'Feature', required=True)
+    feature = fields.Many2One('project.feature', 'Feature')
     delivery = fields.Many2One('project.feature.delivery', 'Delivery')
     cicle = fields.Many2One('project.feature.cicle', 'Cicle')
 
