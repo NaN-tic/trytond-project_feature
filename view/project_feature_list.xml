@@ -4,5 +4,6 @@
 <tree string="Project Requirement">
     <field name="name"/>
     <field name="party"/>
+    <field name="component"/>
     <field name="state"/>
 </tree>

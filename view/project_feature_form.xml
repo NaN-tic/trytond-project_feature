@@ -9,6 +9,9 @@
 
     <label name="party"/>
     <field name="party"/>
+    <label name="component"/>
+    <field name="component"/>
+
     <newline/>
 
     <separator name="background" colspan="2"/>
@@ -22,6 +25,9 @@
         </page>
         <page name="tasks">
               <field name="tasks"/>
+        </page>
+        <page name="related">
+              <field name="related"/>
         </page>
         <page name="origin">
               <field name="origin"/>

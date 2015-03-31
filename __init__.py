@@ -10,5 +10,6 @@ def register():
         FeatureScenario,
         ProjectCicle,
         FeatureDelivery,
+        FeatureRelations,
         Work,
         module='project_feature', type_='model')

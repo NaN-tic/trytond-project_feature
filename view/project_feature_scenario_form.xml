@@ -5,13 +5,11 @@
     <label name="name"/>
     <field name="name"/>
     <label name="feature"/>
-    <field name="feature"/>    
+    <field name="feature"/>
     <newline/>
     <label name="file_name"/>
     <field name="file_name"/>
-    <label name="component"/>
-    <field name="component"/>
-    <separator name="description" colspan="4"/>
+   <separator name="description" colspan="4"/>
     <field name="description" colspan="4"/>
     <separator name="executions" colspan="4"/>
     <field name="executions" colspan="4"/>

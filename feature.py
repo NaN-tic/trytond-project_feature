@@ -13,7 +13,7 @@ from trytond.transaction import Transaction
 
 
 __all__ = ['Feature', 'FeatureScenario', 'Work', 'ProjectCicle',
-    'FeatureDelivery']
+    'FeatureDelivery', 'FeatureRelations']
 
 __metaclass__ = PoolMeta
 
@@ -73,20 +73,30 @@ class Feature(ModelSQL, ModelView):
     party = fields.Many2One('party.party', 'Party', required=True)
     tasks = fields.One2Many('project.work', 'feature', 'Tasks')
     origin = fields.One2Many('activity.activity', 'resource', 'Origin')
+    component = fields.Many2One('project.work.component', 'Component')
     state = fields.Selection([
             ('draft', 'Draft'),
             ('quote', 'Quotation'),
             ('confirm', 'Confirmed'),
             ('in_progress', 'In Progress'),
+            ('to_review', 'To Review'),
             ('done', 'Done'),
             ('cancel', 'Cancel'),
             ], 'State', required=True, select=True)
     scenarios = fields.One2Many('project.feature.scenario', 'feature',
         'Scenarios', required=False)
+    related = fields.Many2Many('project.feature_relations', 'source',
+        'related', 'Related Features')
 
-    @staticmethod
-    def default_state():
-        return 'draft'
+
+class FeatureRelations(ModelSQL):
+        'Feature-Relations'
+        __name__ = 'project.feature_relations'
+
+        source = fields.Many2One('project.feature', 'Feature',
+            ondelete='CASCADE', required=True, select=True)
+        related = fields.Many2One('project.feature', 'Related',
+            ondelete='CASCADE', required=True, select=True)
 
 
 class FeatureScenario(ModelSQL, ModelView):
@@ -95,7 +105,6 @@ class FeatureScenario(ModelSQL, ModelView):
 
     name = fields.Char('Name')
     file_name = fields.Char('File name')
-    component = fields.Many2One('project.work.component', 'Component')
     description = fields.Text('Description', translate=True)
     feature = fields.Many2One('project.feature', 'Feature', required=True,
         select=True)
@@ -106,6 +115,6 @@ class FeatureScenario(ModelSQL, ModelView):
         TestResult = Pool().get('project.test.build.result')
         results = TestResult.search([
                 ('name', 'like', "%" + self.file_name + "%"),
-                ('build.component', '=', self.component and self.component.id),
+                ('build.component', '=', self.feature.component.id),
                 ('type', '=', 'scenario')])
         return [r.id for r in results]
