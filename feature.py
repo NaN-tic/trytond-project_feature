@@ -113,6 +113,8 @@ class FeatureScenario(ModelSQL, ModelView):
 
     def get_executions(self, name=None):
         TestResult = Pool().get('project.test.build.result')
+        if not self.feature.component:
+            return []
         results = TestResult.search([
                 ('name', 'like', "%" + self.file_name + "%"),
                 ('build.component', '=', self.feature.component.id),
