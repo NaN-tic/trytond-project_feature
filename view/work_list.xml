@@ -4,7 +4,6 @@
 <data>
     <xpath expr="/tree/field[@name='state']" position="before">
        <field name="feature"/>
-       <field name="cicle"/>
-       <field name="delivery"/>
+         <field name="delivery"/>
     </xpath>
 </data>

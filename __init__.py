@@ -8,7 +8,6 @@ def register():
     Pool.register(
         Feature,
         FeatureScenario,
-        ProjectCicle,
         FeatureDelivery,
         FeatureRelations,
         Work,

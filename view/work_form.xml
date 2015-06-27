@@ -5,8 +5,6 @@
     <xpath expr="/form/notebook" position="before">
        <label name="feature"/>
        <field name="feature"/>
-       <label name="cicle"/>
-       <field name="cicle"/>
        <label name="delivery"/>
        <field name="delivery"/>
     </xpath>

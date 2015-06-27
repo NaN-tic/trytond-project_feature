@@ -1,18 +1,11 @@
 # This file is part of Tryton.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 
-from sql import Literal
-from sql.conditionals import Case, Coalesce
-from sql.aggregate import Min, Max
-import datetime
-from dateutil.relativedelta import relativedelta
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool, PoolMeta
-from trytond.tools import reduce_ids
-from trytond.transaction import Transaction
 
 
-__all__ = ['Feature', 'FeatureScenario', 'Work', 'ProjectCicle',
+__all__ = ['Feature', 'FeatureScenario', 'Work',
     'FeatureDelivery', 'FeatureRelations']
 
 __metaclass__ = PoolMeta
@@ -23,19 +16,6 @@ class Work:
 
     feature = fields.Many2One('project.feature', 'Feature')
     delivery = fields.Many2One('project.feature.delivery', 'Delivery')
-    cicle = fields.Many2One('project.feature.cicle', 'Cicle')
-
-
-class ProjectCicle(ModelSQL, ModelView):
-    'Feature Cicle'
-
-    __name__ = 'project.feature.cicle'
-
-    name = fields.Char('Name', required=True)
-    party = fields.Many2One('party.party', 'Party', required=True,
-        select=True)
-    tasks = fields.One2Many('project.work', 'cicle', 'Tasks',
-        add_remove=[])
 
 
 class FeatureDelivery(ModelSQL, ModelView):
